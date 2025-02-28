@@ -22,7 +22,7 @@ This is a local deployment to serve the GitHub Pages app of [mehrdad7174.github.
 ```bash
 source ./scripts/init.sh
 ```
-2. After any modifing on your `init.sh` you should run `step 4` and then build image:
+2. After any modifing on your `init.sh` you should run `step 7` and then build image:
     ```bash
     docker build -t fpi:latest --build-context final-project=your-github-repo-address .
     ```
@@ -30,7 +30,21 @@ source ./scripts/init.sh
     ```bash
     docker compose up -d
     ```
-4. To down the compose stack
+4. Visit the homepage by going to [localhost:8081](http://localhost:8081) in the browser.
+5. Click the link you find on the homepage.
+6. To monitor servecies, attach to the watchdog and curl different services.
+    ```bash
+    docker compose attach watchdog-svc
+    ```
+    (From inside watchdog-c)
+    ```sh
+    apk add curl
+    curl http://fp-svc:7901/ # proxied to http://hp-svc:6969/
+    curl http://hp-svc:6969/ # hits http://hp-svc:6969/
+    curl http://fp-svc:7901/pages-site/ # hit the pages site
+    ```
+    use `control + d` to exit and restart that main shell process
+7. To down the compose stack
     ```bash
     docker compose down
     ```
