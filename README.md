@@ -24,12 +24,14 @@ This is a local deployment to run server-side php scripts integerated with an NG
 source ./scripts/init.sh
 ```
 
+2. Some manual changes TB Documented
+
 3. To up the compose stack:
     ```bash
     docker compose up -d
     ```
 
-7. To down the compose stack
+4. To down the compose stack
     ```bash
     docker compose down
     ```
