@@ -3,7 +3,6 @@
 # Except the following
 !/README.md
 !/docker-compose.yaml
-!/Dockerfile
 !/scripts/
 scripts/*
 !/.gitignore
