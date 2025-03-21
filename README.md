@@ -4,6 +4,7 @@ This is a local deployment to run server-side PHP on using FastCGI process Manag
 ## Architecture
 - requests to `http://localhost:8089` get handled by the `http-svc`
 - if it encounters php files, is executes them using the `php-svc` over the docker network on port `9000`
+-php will talk to mysql over port `3311` when it needs to get todo data in the todo app
 
 ## Prerequisties
 - Docker version 27.4.0, build bde2b89
@@ -29,7 +30,7 @@ source ./scripts/init.sh
     docker compose up -d
     ```
 4. Visit the homepage by going to [localhost:8089](http://localhost:8089) in the browser.
-5. Click the link you find on the homepage. You should see the PHP info with some purple coloring.
+5. Click the link you find on the homepage. 
 
 6. To down the compose stack
     ```bash
